@@ -65,3 +65,31 @@ a = np.array([1, 2, 3, 4, 5])
 b = np.array([6, 7, 8, 9])
 
 print(a[:-1] + b)
+
+
+# p83 1번
+import numpy as np
+
+result = np.array([[3, 5, 7], [2, 3, 6]])
+print(result)
+
+
+# p83 2번
+import numpy as np
+
+a = np.array([[8,10,7,8,],[2,4,5,5],[7,6,1,7],[2,6,8,6],[9,3,4,2]])
+
+result = np.array([a[1],a[3],a[4]])
+print(result)
+
+
+# p83 3번
+import numpy as np
+
+a = np.array([[8,10,7,8],[2,4,5,5],[7,6,1,7],[2,6,8,6],[9,3,4,2]])
+
+result = np.empty((0, a.shape[1]))
+for i in range(len(a)):
+    if a[i][2] > 3:
+        result = np.append(result, [a[i]], axis=0)
+print(result)
