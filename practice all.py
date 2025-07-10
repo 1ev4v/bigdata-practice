@@ -93,3 +93,28 @@ for i in range(len(a)):
     if a[i][2] > 3:
         result = np.append(result, [a[i]], axis=0)
 print(result)
+
+
+# p83 4번
+import numpy as np
+
+a = np.array([[8,10,7,8],[2,4,5,5],[7,6,1,7],[2,6,8,6],[9,3,4,2]])
+b = np.sum(a, axis=1)
+print(a.shape)
+result = np.empty((0, a.shape[1]))
+for i in range(len(b)):
+    if b[i] >= 20:
+        result = np.append(result, [a[i]], axis=0)
+print(result)
+
+
+# p84 5번
+import numpy as np
+
+a = np.array([[8,10,7,8],[2,4,5,5],[7,6,1,7],[2,6,8,6],[9,3,4,2]])
+b = np.mean(a, axis=0)
+result = np.where(b >=5)[0]
+print(result)
+
+
+# p84 6번
