@@ -118,3 +118,23 @@ print(result)
 
 
 # p84 6번
+import numpy as np
+
+a = np.array([[8,10,7,8],[2,4,5,5],[7,6,1,7],[2,6,8,6],[9,3,4,2]])
+result = np.empty((0, a.shape[1]), dtype=int)
+for i in range(a.shape[0]):
+    for j in range(a.shape[1]):
+        if a[i][j] >= 7:
+            result = np.append(result, [a[i]], axis=0)
+            break
+# print(a)
+print(result)
+
+
+# p146 1번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
+df.info()
+
+
+# p146 2번
