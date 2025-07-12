@@ -138,3 +138,29 @@ df.info()
 
 
 # p146 2번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
+print(df[df['midterm'] >= 85])
+
+
+# p146 3번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
+print(df.sort_values(by='final', ascending=False).head(5))
+# print(df.sort_values(by='final', ascending=False).head(5).loc[:, ['name', 'final']])
+
+
+# p146 4번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
+print(df.groupby('gender')[['midterm', 'final']].mean())
+
+
+# p146 5번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
+df['student_id'] = df['student_id'].astype(str)
+print(df.info())
+
+
+# p146 6번
