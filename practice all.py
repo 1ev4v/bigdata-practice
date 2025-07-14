@@ -156,11 +156,50 @@ df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.c
 print(df.groupby('gender')[['midterm', 'final']].mean())
 
 
-# p146 5번
+# p147 5번
 import pandas as pd
 df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
 df['student_id'] = df['student_id'].astype(str)
 print(df.info())
 
 
-# p146 6번
+# p147 6번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
+print(df[df['assignment'] == df['assignment'].max()])
+print(df[df['assignment'] == df['assignment'].min()])
+# print(df[df['assignment'] > df['assignment'].mean()]['assignment'].mean())
+
+
+# p147 7번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
+df['average'] = df[['midterm', 'final', 'assignment']].mean(axis=1)
+print(df.head(5))
+
+
+# p147 8번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
+# print(df.isna().sum())
+df = df.dropna()
+# print(df)
+df.info()
+
+
+# p147 9번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
+
+additional_data = {
+    'student_id': ['1', '3', '5', '7', '9'],
+    'club': ['Art', 'Science', 'Math', 'Music', 'Drama']
+}
+df_additional = pd.DataFrame(additional_data)
+
+df['student_id'] = df['student_id'].astype(str)
+rs = pd.merge(df, df_additional, on='student_id', how='left')
+print(rs)
+
+
+# p148 10번
