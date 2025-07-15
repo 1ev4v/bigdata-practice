@@ -203,3 +203,36 @@ print(rs)
 
 
 # p148 10번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
+df['average'] = df[['midterm', 'final', 'assignment']].mean(axis=1)
+df = pd.pivot_table(
+    df,
+    index='gender',
+    columns='student_id',
+    values='average'
+)
+print(df)
+
+
+# p148 11번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
+df['average'] = df[['midterm', 'final', 'assignment']].mean(axis=1)
+df = df.groupby('gender')[['assignment', 'average', 'final', 'midterm']].mean()
+print(df) 
+
+
+# p148 12번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
+df['average'] = df[['midterm', 'final', 'assignment']].mean(axis=1)
+rs = df[df['average'] == df['average'].max()]
+print(rs)
+
+
+# p166 1번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/bike_data.csv')
+# print(df)
+df.info()
