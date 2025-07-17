@@ -219,20 +219,24 @@ print(df)
 import pandas as pd
 df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
 df['average'] = df[['midterm', 'final', 'assignment']].mean(axis=1)
-df = df.groupby('gender')[['assignment', 'average', 'final', 'midterm']].mean()
-print(df) 
+# df = df.groupby('gender')[['assignment', 'average', 'final', 'midterm']].mean()
+# print(df) 
 
+# help(pd.melt) 시험장에서 함수 인수가 생각안나면 help()로 확인
+melted_df = pd.melt(df, id_vars=['gender', 'student_id', 'name'], value_vars=['assignment', 'average', 'final', 'midterm'], var_name='variable', value_name='score')
+df = melted_df.groupby(['gender','variable'])['score'].mean().reset_index()
+print(df)
 
 # p148 12번
 import pandas as pd
 df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/grade.csv')
 df['average'] = df[['midterm', 'final', 'assignment']].mean(axis=1)
-rs = df[df['average'] == df['average'].max()]
-print(rs)
+# rs = df[df['average'] == df['average'].max()]
+# print(rs)
+
+max_student_idx = df['average'].idxmax()
+#print(max_student_idx)
+print(df.loc[max_student_idx, ['name', 'average']])
 
 
 # p166 1번
-import pandas as pd
-df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/bike_data.csv')
-# print(df)
-df.info()
