@@ -281,3 +281,35 @@ print(df[df['month'] == 1]['count'].sum())
 
 
 # p167 4번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/bike_data.csv')
+df['datetime'] = pd.to_datetime(df['datetime'])
+df['day'] = df['datetime'].dt.day
+print(df.groupby('day')['count'].sum().idxmax())
+
+
+# p167 5번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/bike_data.csv')
+df['datetime'] = pd.to_datetime(df['datetime'])
+df['hour'] = df['datetime'].dt.hour
+print(df.groupby('hour')['count'].mean())
+
+
+# p167 6번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/bike_data.csv')
+df['datetime'] = pd.to_datetime(df['datetime'])
+df['weekday'] = df['datetime'].dt.weekday
+alpha = df.groupby('weekday')['count'].sum()
+print(alpha[0])
+
+# import pandas as pd
+# df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/bike_data.csv')
+# df['datetime'] = pd.to_datetime(df['datetime'])
+# df['weekday'] = df['datetime'].dt.day_name()
+# alpha = df.groupby('weekday')['count'].sum()
+# print(alpha['Monday'])
+
+
+# p167 7번
