@@ -313,3 +313,33 @@ print(alpha[0])
 
 
 # p167 7번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/bike_data.csv')
+df.info()
+# help(pd.melt)
+alpha = pd.melt(df,
+                id_vars=['datetime', 'season'],
+                value_vars=['casual', 'registered'],
+                var_name='user_type',
+                value_name='rental_count')
+print(alpha)
+
+
+# p167 8번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/bike_data.csv')
+# help(pd.melt)
+a = pd.melt(df, 
+                id_vars=['datetime', 'season'], 
+                value_vars=['casual', 'registered'], 
+                var_name='user_type', 
+                value_name='rental_count')
+print(a.groupby(['season', 'user_type'])['rental_count'].mean())
+
+
+# p167 9번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/logdata.csv')
+# df.info()
+df['year'] = df['로그'].str[:4]
+print(df)
