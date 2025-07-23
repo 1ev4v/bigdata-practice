@@ -350,3 +350,29 @@ print(df)
 
 
 # p168 10번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/logdata.csv')
+print(df['로그'].str.split().str[1])
+
+
+# p168 11번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/logdata.csv')
+print(df['로그'].str.extract(r'([가-힣]+)'))
+
+
+# p168 12번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/logdata.csv')
+print(df['로그'].str.replace(r'([^가-힣a-zA-Z0-9\s])', '', regex=True))
+
+
+# p168 13번
+import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/logdata.csv')
+df['name'] = df['로그'].str.extract(r'([가-힣]+)')
+df['amount'] = df['로그'].str.extract(r'Amount: (\d+)').astype(float)
+print(df.groupby('name')['amount'].mean())
+
+
+# p244 모범 답안 작성 예시
