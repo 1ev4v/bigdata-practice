@@ -337,9 +337,16 @@ a = pd.melt(df,
 print(a.groupby(['season', 'user_type'])['rental_count'].mean())
 
 
-# p167 9번
+# p168 9번
 import pandas as pd
 df = pd.read_csv('https://raw.githubusercontent.com/YoungjinBD/data/main/logdata.csv')
-# df.info()
+df.info()
 df['year'] = df['로그'].str[:4]
 print(df)
+
+# df['year'] = df['로그'].str.split('-').str[0]
+# # df.info()
+# print(df)
+
+
+# p168 10번
