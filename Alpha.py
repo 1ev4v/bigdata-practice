@@ -374,5 +374,3 @@ df['name'] = df['로그'].str.extract(r'([가-힣]+)')
 df['amount'] = df['로그'].str.extract(r'Amount: (\d+)').astype(float)
 print(df.groupby('name')['amount'].mean())
 
-
-# p244 모범 답안 작성 예시
