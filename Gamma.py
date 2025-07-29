@@ -59,7 +59,7 @@ print(valid_f1_score)
 test_pred = rf.predict(test_X_preprocessed)
 test_pred = pd.DataFrame(test_pred, columns=['pred'])
 
-test_pred.to_csv('result.csv', index=False)
+# test_pred.to_csv('result.csv', index=False)
 
 
 # GridSearch & K-fold cross validation
@@ -70,6 +70,21 @@ from sklearn.model_selection import GridSearchCV
 
 param_grid = {
     'max_depth': [10, 20, 30],
-    'min_sample_split': [2, 5, 10]
+    'min_samples_split': [2, 5, 10]
 }
 
+rf = RandomForestClassifier(random_state=1)
+rf_search = GridSearchCV(estimator= rf,
+                         param_grid=param_grid,
+                         cv=3,
+                         scoring='f1_macro')
+# help(GridSearchCV)
+
+rf_search.fit(train_X_full, train_y_full)
+
+print('교차검증 f1-score:', rf_search.best_score_)
+
+test_pred2 = rf_search.predict(test_X_preprocessed)
+test_pred2 = pd.DataFrame(test_pred2, columns=['pred'])
+
+# test_pred2.to_csv('result.csv', index=False)
