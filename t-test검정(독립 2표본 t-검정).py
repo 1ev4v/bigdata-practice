@@ -16,6 +16,7 @@ female = my_tab2[my_tab2['gender'] == 'Female']
 # 단측검정 (큰 쪽)
 # alternative를 설정할때는 대립가설의 형태를 정확히 살펴보고 그에 맞춰서 값을 대입해야한다. (greater, less, two-sided)
 # alternative='greater'의 의미는 대립가설이 첫번째 그룹의 평균이 두번째 그룹의 평균보다 높닫고 설정되어 있다는 의미이다.
+# equal_var는 해당 집단이 동일한 분산을 가진다고 가정할때  True로 설정하고 아니면 False로 설정한다.
 t_statistic, p_value = ttest_ind(male['score'], female['score'], equal_var = True, alternative='greater')
 print(f"T-statistic: {t_statistic}")
 print(f"P-value: {p_value}")
