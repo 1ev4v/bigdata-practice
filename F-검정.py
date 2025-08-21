@@ -1,3 +1,5 @@
+# F검정은 F분포를 이용해서 “두 집단의 분산이 같은지” 또는 “여러 그룹 평균이 차이가 있는지”를 판단하는 통계적 방법
+
 import numpy as np
 import scipy.stats as stats
 
