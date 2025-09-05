@@ -31,6 +31,17 @@ from scipy.stats import anderson
 # 엔더슨-달링 테스트
 ad_stat, ad_critical_values, ad_significance_level = anderson(residuals, dist='norm')
 
+# 실제 표본으로부터 계산된 검정통계량
 print(f'Anderson-Darling Test Statistic: {ad_stat}')
+# 각 유의수준에서의 기각 기준치
 print(f'Critical Values: {ad_critical_values}')   # (15%, 10%, 5%, 2.5%, 1%)에 대한 임곗값
+# 각 유의수준
 print(f'Significance Levels: {ad_significance_level}')
+
+
+from scipy.stats import shapiro
+# 샤피로-윌크 테스트
+sw_stat, sw_p_value = shapiro(residuals)
+
+print(f'Shapiro-Wilk Test Statistic: {sw_stat}')
+print(f'p-value: {sw_p_value}')
