@@ -23,6 +23,9 @@ model = smf.ols('Petal_Length ~ Petal_Width + Sepal_Length', data = iris).fit()
 
 
 # 회귀분석에서는 등분산 가정이 존재한다. 즉, 오차(잡음)의 분산은 일정하다고 가정한다.
+# 일정하다고 가정은 하지만 실제 데이터에서는 잔차의 크기가 어떤 독립변수 값에 따라 커졌다 작아졌다 할 수 있음. 
+# 그래서 이 테스트를 통해 분산의 상황을 판단하는 것임.
+
 # 등분산 가정은 Breusch-Pagan 검정을 통해 체크할 수 있다.
 
 # Breusch-Pagan 검정
