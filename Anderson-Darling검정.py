@@ -8,6 +8,7 @@ import scipy.stats as sp
 sample_data = np.array([4.62, 4.09, 6.2, 8.24, 0.77, 5.55, 3.11, 11.97, 2.16, 3.24, 10.91, 11.36, 0.87])
 
 # Anderson-Darling 검정 수행
+# anderson()함수의 인자중 dist는 검정에 사용할 기준 분포를 의미한다. 'norm'은 정규분포를 의미함.
 result = sp.anderson(sample_data, dist='norm')
 print(f'검정통계량: {result[0]}')
 print(f'임계값: {result[1]}')
