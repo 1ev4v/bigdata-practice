@@ -47,7 +47,7 @@ from sklearn.ensemble import RandomForestRegressor
 #help(RandomForestRegressor)
 rf = RandomForestRegressor(random_state=1)
 rf.fit(train_X_preprocessed, train_y)
-RandomForestRegressor(random_state=1)
+# RandomForestRegressor(random_state=1)
 
 from sklearn.metrics import mean_squared_error, root_mean_squared_error
 pred_val = rf.predict(valid_X_preprocessed)

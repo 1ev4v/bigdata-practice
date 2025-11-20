@@ -46,7 +46,7 @@ test_X_preprocessed = np.concatenate([test_X[num_columns], test_X_categorical_en
 from sklearn.ensemble import RandomForestClassifier
 rf = RandomForestClassifier(random_state=1)
 rf.fit(train_X_preprocessed, train_y)
-RandomForestClassifier(random_state=1)
+# RandomForestClassifier(random_state=1)
 
 # import sklearn
 # print(dir((sklearn.metrics)))
